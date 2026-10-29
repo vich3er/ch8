@@ -1,0 +1,163 @@
+[
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_13",
+    "http://www.semanticweb.org/patient_monitoring#hasValueNumeric": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 133.0
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_14",
+    "http://www.semanticweb.org/patient_monitoring#hasValueNumeric": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 134.0
+      }
+    ]
+  },
+  {
+    "@id": "_:n741760e9734e4cbcb5564720de12fbfeb2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#patient_18",
+    "http://www.semanticweb.org/patient_monitoring#hasVitalSign": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_18"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#patient_20",
+    "http://www.semanticweb.org/patient_monitoring#hasVitalSign": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_20"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_28",
+    "http://www.semanticweb.org/patient_monitoring#hasValueNumeric": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 148.0
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#sent_neg_01",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#dev_device_05",
+    "http://www.semanticweb.org/patient_monitoring#hasDeviceID": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "DEV-ID-005"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#CardiovascularSymptom",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#Symptom"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#hasTimestamp",
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#patient_16",
+    "http://www.semanticweb.org/patient_monitoring#isMonitoredBy": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#dev_device_16"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#sent_pos_01",
+    "@type": [
+      "http://www.semanticweb.org/patient_monitoring#PositiveSentiment"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_spo2_01",
+    "http://www.semanticweb.org/patient_monitoring#hasValueNumeric": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 88.5
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#fb_02",
+    "http://www.semanticweb.org/patient_monitoring#hasTimestamp": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-10-21T11:30:00+00:00"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_09",
+    "http://www.semanticweb.org/patient_monitoring#hasValueNumeric": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#double",
+        "@value": 129.0
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#patient_06",
+    "http://www.semanticweb.org/patient_monitoring#hasVitalSign": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_06"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#PositiveSentiment",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.semanticweb.org/patient_monitoring#Sentiment"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#dev_device_07",
+    "http://www.semanticweb.org/patient_monitoring#hasDeviceID": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "DEV-ID-007"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#vital_sign_04",
+    "@type": [
+      "http://www.semanticweb.org/patient_monitoring#VitalSign"
+    ]
+  },
+  {
+    "@id": "http://www.semanticweb.org/patient_monitoring#dev_device_22",
+    "http://www.semanticweb.org/patient_monitoring#hasDeviceID": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "DEV-ID-022"
+      }
+    ]
+  }
+]

@@ -1,0 +1,559 @@
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:AcuteCondition a owl:Class ;
+    rdfs:subClassOf :MedicalCondition .
+
+:BloodPressure a owl:Class ;
+    rdfs:subClassOf :VitalSign .
+
+:BodyTemperature a owl:Class ;
+    rdfs:subClassOf :VitalSign .
+
+:CardiovascularSymptom a owl:Class ;
+    rdfs:subClassOf :Symptom .
+
+:DiagnosticReport a owl:Class .
+
+:Event a owl:Class .
+
+:HospitalWard a owl:Class .
+
+:MonitoringSituation a owl:Class .
+
+:Observation a owl:Class .
+
+:Sensor a owl:Class .
+
+:State a owl:Class .
+
+:Therapy a owl:Class .
+
+:TreatmentPlan a owl:Class .
+
+:action_alert_01 a :AlertAction,
+        owl:NamedIndividual ;
+    :triggeredBy :fb_03 .
+
+:action_med_adj_01 a :MedicationAdjustment,
+        owl:NamedIndividual ;
+    :triggeredBy :fb_01 .
+
+:associatedWithSymptom a owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+:cond_heart_failure a :ChronicCondition,
+        owl:NamedIndividual ;
+    :associatedWithSymptom :symptom_dyspnea .
+
+:doc_smith a :Doctor,
+        owl:NamedIndividual ;
+    :treatsPatient :patient_01 .
+
+:hasFeedbackText a owl:DatatypeProperty ;
+    rdfs:domain :PatientFeedback ;
+    rdfs:range xsd:string .
+
+:hasScore a owl:DatatypeProperty ;
+    rdfs:domain :Sentiment ;
+    rdfs:range xsd:float .
+
+:hasSentiment a owl:FunctionalProperty,
+        owl:ObjectProperty .
+
+:hasSeverity a owl:AnnotationProperty,
+        owl:ObjectProperty .
+
+:hasTimestamp a owl:DatatypeProperty ;
+    rdfs:domain :PatientFeedback ;
+    rdfs:range xsd:dateTime .
+
+:hasValueNumeric a owl:DatatypeProperty ;
+    rdfs:domain :VitalSign ;
+    rdfs:range xsd:double .
+
+:isMonitoredBy a owl:ObjectProperty ;
+    owl:inverseOf :monitorsPatient .
+
+:nurse_joy a :Nurse,
+        owl:NamedIndividual .
+
+:patient_04 a :Patient ;
+    :hasVitalSign :vital_sign_04 ;
+    :isMonitoredBy :dev_device_04 .
+
+:patient_05 a :Patient ;
+    :hasVitalSign :vital_sign_05 ;
+    :isMonitoredBy :dev_device_05 .
+
+:patient_06 a :Patient ;
+    :hasVitalSign :vital_sign_06 ;
+    :isMonitoredBy :dev_device_06 .
+
+:patient_07 a :Patient ;
+    :hasVitalSign :vital_sign_07 ;
+    :isMonitoredBy :dev_device_07 .
+
+:patient_08 a :Patient ;
+    :hasVitalSign :vital_sign_08 ;
+    :isMonitoredBy :dev_device_08 .
+
+:patient_09 a :Patient ;
+    :hasVitalSign :vital_sign_09 ;
+    :isMonitoredBy :dev_device_09 .
+
+:patient_10 a :Patient ;
+    :hasVitalSign :vital_sign_10 ;
+    :isMonitoredBy :dev_device_10 .
+
+:patient_11 a :Patient ;
+    :hasVitalSign :vital_sign_11 ;
+    :isMonitoredBy :dev_device_11 .
+
+:patient_12 a :Patient ;
+    :hasVitalSign :vital_sign_12 ;
+    :isMonitoredBy :dev_device_12 .
+
+:patient_13 a :Patient ;
+    :hasVitalSign :vital_sign_13 ;
+    :isMonitoredBy :dev_device_13 .
+
+:patient_14 a :Patient ;
+    :hasVitalSign :vital_sign_14 ;
+    :isMonitoredBy :dev_device_14 .
+
+:patient_15 a :Patient ;
+    :hasVitalSign :vital_sign_15 ;
+    :isMonitoredBy :dev_device_15 .
+
+:patient_16 a :Patient ;
+    :hasVitalSign :vital_sign_16 ;
+    :isMonitoredBy :dev_device_16 .
+
+:patient_17 a :Patient ;
+    :hasVitalSign :vital_sign_17 ;
+    :isMonitoredBy :dev_device_17 .
+
+:patient_18 a :Patient ;
+    :hasVitalSign :vital_sign_18 ;
+    :isMonitoredBy :dev_device_18 .
+
+:patient_19 a :Patient ;
+    :hasVitalSign :vital_sign_19 ;
+    :isMonitoredBy :dev_device_19 .
+
+:patient_20 a :Patient ;
+    :hasVitalSign :vital_sign_20 ;
+    :isMonitoredBy :dev_device_20 .
+
+:patient_21 a :Patient ;
+    :hasVitalSign :vital_sign_21 ;
+    :isMonitoredBy :dev_device_21 .
+
+:patient_22 a :Patient ;
+    :hasVitalSign :vital_sign_22 ;
+    :isMonitoredBy :dev_device_22 .
+
+:patient_23 a :Patient ;
+    :hasVitalSign :vital_sign_23 ;
+    :isMonitoredBy :dev_device_23 .
+
+:patient_24 a :Patient ;
+    :hasVitalSign :vital_sign_24 ;
+    :isMonitoredBy :dev_device_24 .
+
+:patient_25 a :Patient ;
+    :hasVitalSign :vital_sign_25 ;
+    :isMonitoredBy :dev_device_25 .
+
+:patient_26 a :Patient ;
+    :hasVitalSign :vital_sign_26 ;
+    :isMonitoredBy :dev_device_26 .
+
+:patient_27 a :Patient ;
+    :hasVitalSign :vital_sign_27 ;
+    :isMonitoredBy :dev_device_27 .
+
+:patient_28 a :Patient ;
+    :hasVitalSign :vital_sign_28 ;
+    :isMonitoredBy :dev_device_28 .
+
+:patient_29 a :Patient ;
+    :hasVitalSign :vital_sign_29 ;
+    :isMonitoredBy :dev_device_29 .
+
+:symptom_fever a :Symptom,
+        owl:NamedIndividual ;
+    :hasSeverity "Moderate" .
+
+:treatsPatient a owl:ObjectProperty .
+
+:triggeredBy a owl:ObjectProperty .
+
+<http://www.semanticweb.org/patient_monitoring/data_v3> a owl:Ontology ;
+    owl:imports <http://www.semanticweb.org/patient_monitoring> .
+
+<http://www.semanticweb.org/patient_monitoring> a owl:Ontology ;
+    owl:imports fhir: .
+
+:AlertAction a owl:Class ;
+    rdfs:subClassOf :Action .
+
+:ChronicCondition a owl:Class ;
+    rdfs:subClassOf :MedicalCondition .
+
+:Doctor a owl:Class ;
+    rdfs:subClassOf :HealthcareProvider .
+
+:HeartRate a owl:Class ;
+    rdfs:subClassOf :VitalSign .
+
+:MedicationAdjustment a owl:Class ;
+    rdfs:subClassOf :Action .
+
+:NeutralSentiment a owl:Class ;
+    rdfs:subClassOf :Sentiment ;
+    owl:disjointWith :PositiveSentiment .
+
+:Nurse a owl:Class ;
+    rdfs:subClassOf :HealthcareProvider .
+
+:PainSymptom a owl:Class ;
+    rdfs:subClassOf :Symptom .
+
+:PulseOximeter a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :OxygenSaturation ;
+            owl:onProperty :measuresVitalSign ],
+        :MedicalDevice .
+
+:RespiratorySymptom a owl:Class ;
+    rdfs:subClassOf :Symptom .
+
+:ServiceFeedback a owl:Class ;
+    rdfs:subClassOf :PatientFeedback ;
+    owl:disjointWith :SymptomFeedback .
+
+:WearableSensor a owl:Class ;
+    rdfs:subClassOf :MedicalDevice .
+
+:dev_device_01 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-001"^^xsd:string .
+
+:dev_device_02 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-002"^^xsd:string .
+
+:dev_device_03 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-003"^^xsd:string .
+
+:dev_device_04 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-004"^^xsd:string .
+
+:dev_device_05 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-005"^^xsd:string .
+
+:dev_device_06 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-006"^^xsd:string .
+
+:dev_device_07 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-007"^^xsd:string .
+
+:dev_device_08 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-008"^^xsd:string .
+
+:dev_device_09 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-009"^^xsd:string .
+
+:dev_device_10 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-010"^^xsd:string .
+
+:dev_device_11 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-011"^^xsd:string .
+
+:dev_device_12 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-012"^^xsd:string .
+
+:dev_device_13 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-013"^^xsd:string .
+
+:dev_device_14 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-014"^^xsd:string .
+
+:dev_device_15 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-015"^^xsd:string .
+
+:dev_device_16 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-016"^^xsd:string .
+
+:dev_device_17 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-017"^^xsd:string .
+
+:dev_device_18 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-018"^^xsd:string .
+
+:dev_device_19 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-019"^^xsd:string .
+
+:dev_device_20 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-020"^^xsd:string .
+
+:dev_device_21 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-021"^^xsd:string .
+
+:dev_device_22 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-022"^^xsd:string .
+
+:dev_device_23 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-023"^^xsd:string .
+
+:dev_device_24 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-024"^^xsd:string .
+
+:dev_device_25 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-025"^^xsd:string .
+
+:dev_device_26 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-026"^^xsd:string .
+
+:dev_device_27 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-027"^^xsd:string .
+
+:dev_device_28 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-028"^^xsd:string .
+
+:dev_device_29 a :MedicalDevice ;
+    :hasDeviceID "DEV-ID-029"^^xsd:string .
+
+:dev_pulse_ox_01 a :PulseOximeter,
+        owl:NamedIndividual ;
+    :hasDeviceID "POX-9921" ;
+    :measuresVitalSign :vital_spo2_01 ;
+    :monitorsPatient :patient_01 .
+
+:dev_smartwatch_01 a :WearableSensor,
+        owl:NamedIndividual ;
+    :hasDeviceID "WSR-1044" ;
+    :measuresVitalSign :vital_hr_01 ;
+    :monitorsPatient :patient_03 .
+
+:fb_02 a :ServiceFeedback,
+        owl:NamedIndividual ;
+    :hasFeedbackText "Чудовий догляд медсестри у палаті" ;
+    :hasSentiment :sent_pos_01 ;
+    :hasTimestamp "2026-10-21T11:30:00+00:00"^^xsd:dateTime ;
+    :submittedBy :patient_02 .
+
+:hasDeviceID a owl:DatatypeProperty ;
+    rdfs:domain :MedicalDevice ;
+    rdfs:range xsd:string .
+
+:hasFeedback a owl:ObjectProperty ;
+    owl:inverseOf :submittedBy .
+
+:measuresVitalSign a owl:ObjectProperty .
+
+:mentionsSymptom a owl:ObjectProperty .
+
+:monitorsPatient a owl:ObjectProperty .
+
+:patient_02 a :Patient,
+        owl:NamedIndividual ;
+    :hasFeedback :fb_02 ;
+    :hasVitalSign :vital_sign_02 ;
+    :isMonitoredBy :dev_device_02 .
+
+:sent_neg_01 a :NegativeSentiment,
+        :PositiveSentiment,
+        owl:NamedIndividual ;
+    :hasScore "-0.75"^^xsd:float .
+
+:sent_neg_02 a :NegativeSentiment,
+        owl:NamedIndividual ;
+    :hasScore "-0.9"^^xsd:float .
+
+:sent_pos_01 a :PositiveSentiment,
+        owl:NamedIndividual ;
+    :hasScore "0.85"^^xsd:float .
+
+:symptom_chest_pain a :PainSymptom,
+        owl:NamedIndividual ;
+    :hasSeverity "Critical" .
+
+:vital_hr_01 a :HeartRate,
+        owl:NamedIndividual ;
+    :hasValueNumeric 1.25e+02 .
+
+:vital_sign_01 a :VitalSign ;
+    :hasValueNumeric 1.21e+02 .
+
+:vital_sign_02 a :VitalSign ;
+    :hasValueNumeric 1.22e+02 .
+
+:vital_sign_03 a :VitalSign ;
+    :hasValueNumeric 1.23e+02 .
+
+:vital_sign_04 a :VitalSign ;
+    :hasValueNumeric 1.24e+02 .
+
+:vital_sign_05 a :VitalSign ;
+    :hasValueNumeric 1.25e+02 .
+
+:vital_sign_06 a :VitalSign ;
+    :hasValueNumeric 1.26e+02 .
+
+:vital_sign_07 a :VitalSign ;
+    :hasValueNumeric 1.27e+02 .
+
+:vital_sign_08 a :VitalSign ;
+    :hasValueNumeric 1.28e+02 .
+
+:vital_sign_09 a :VitalSign ;
+    :hasValueNumeric 1.29e+02 .
+
+:vital_sign_10 a :VitalSign ;
+    :hasValueNumeric 1.3e+02 .
+
+:vital_sign_11 a :VitalSign ;
+    :hasValueNumeric 1.31e+02 .
+
+:vital_sign_12 a :VitalSign ;
+    :hasValueNumeric 1.32e+02 .
+
+:vital_sign_13 a :VitalSign ;
+    :hasValueNumeric 1.33e+02 .
+
+:vital_sign_14 a :VitalSign ;
+    :hasValueNumeric 1.34e+02 .
+
+:vital_sign_15 a :VitalSign ;
+    :hasValueNumeric 1.35e+02 .
+
+:vital_sign_16 a :VitalSign ;
+    :hasValueNumeric 1.36e+02 .
+
+:vital_sign_17 a :VitalSign ;
+    :hasValueNumeric 1.37e+02 .
+
+:vital_sign_18 a :VitalSign ;
+    :hasValueNumeric 1.38e+02 .
+
+:vital_sign_19 a :VitalSign ;
+    :hasValueNumeric 1.39e+02 .
+
+:vital_sign_20 a :VitalSign ;
+    :hasValueNumeric 1.4e+02 .
+
+:vital_sign_21 a :VitalSign ;
+    :hasValueNumeric 1.41e+02 .
+
+:vital_sign_22 a :VitalSign ;
+    :hasValueNumeric 1.42e+02 .
+
+:vital_sign_23 a :VitalSign ;
+    :hasValueNumeric 1.43e+02 .
+
+:vital_sign_24 a :VitalSign ;
+    :hasValueNumeric 1.44e+02 .
+
+:vital_sign_25 a :VitalSign ;
+    :hasValueNumeric 1.45e+02 .
+
+:vital_sign_26 a :VitalSign ;
+    :hasValueNumeric 1.46e+02 .
+
+:vital_sign_27 a :VitalSign ;
+    :hasValueNumeric 1.47e+02 .
+
+:vital_sign_28 a :VitalSign ;
+    :hasValueNumeric 1.48e+02 .
+
+:vital_sign_29 a :VitalSign ;
+    :hasValueNumeric 1.49e+02 .
+
+:vital_spo2_01 a :OxygenSaturation,
+        owl:NamedIndividual ;
+    :hasValueNumeric 8.85e+01 .
+
+:Action a owl:Class .
+
+:HealthcareProvider a owl:Class .
+
+:MedicalCondition a owl:Class .
+
+:NegativeSentiment a owl:Class ;
+    rdfs:subClassOf :Sentiment ;
+    owl:disjointWith :NeutralSentiment .
+
+:OxygenSaturation a owl:Class ;
+    rdfs:subClassOf :VitalSign .
+
+:fb_01 a :SymptomFeedback,
+        owl:NamedIndividual ;
+    :hasFeedbackText "Задишка посилилась під час ходьби" ;
+    :hasSentiment :sent_neg_01 ;
+    :hasTimestamp "2026-10-20T10:00:00+00:00"^^xsd:dateTime ;
+    :mentionsSymptom :symptom_dyspnea ;
+    :submittedBy :patient_01 .
+
+:fb_03 a :SymptomFeedback,
+        owl:NamedIndividual ;
+    :hasSentiment :sent_neg_02 ;
+    :hasTimestamp "2026-10-22T08:15:00+00:00"^^xsd:dateTime ;
+    :mentionsSymptom :symptom_chest_pain ;
+    :submittedBy :patient_03 .
+
+:patient_03 a :Patient,
+        owl:NamedIndividual ;
+    :hasFeedback :fb_03 ;
+    :hasVitalSign :vital_sign_03 ;
+    :isMonitoredBy :dev_device_03,
+        :dev_smartwatch_01 .
+
+:submittedBy a owl:FunctionalProperty,
+        owl:ObjectProperty .
+
+:symptom_dyspnea a :RespiratorySymptom,
+        owl:NamedIndividual ;
+    :hasSeverity "Severe" .
+
+:PositiveSentiment a owl:Class ;
+    rdfs:subClassOf :Sentiment .
+
+:SymptomFeedback a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :mentionsSymptom ;
+            owl:someValuesFrom :Symptom ],
+        :PatientFeedback .
+
+:patient_01 a :Patient,
+        owl:NamedIndividual ;
+    :hasFeedback :fb_01 ;
+    :hasVitalSign :vital_sign_01 ;
+    :isMonitoredBy :dev_device_01,
+        :dev_pulse_ox_01 .
+
+:Sentiment a owl:Class .
+
+:PatientFeedback a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Patient ;
+            owl:onProperty :submittedBy ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+:Symptom a owl:Class .
+
+:Patient a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasFeedback ;
+            owl:someValuesFrom :PatientFeedback ] .
+
+:MedicalDevice a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :hasDeviceID ] .
+
+:VitalSign a owl:Class .
+

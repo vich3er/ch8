@@ -1,0 +1,300 @@
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/patient_monitoring#> .
+
+<http://www.semanticweb.org/patient_monitoring> rdf:type owl:Ontology ;
+                                                 owl:imports fhir: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/patient_monitoring#associatedWithSymptom
+:associatedWithSymptom rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasFeedback
+:hasFeedback rdf:type owl:ObjectProperty ;
+             owl:inverseOf :submittedBy .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasSentiment
+:hasSentiment rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasSeverity
+:hasSeverity rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#isMonitoredBy
+:isMonitoredBy rdf:type owl:ObjectProperty ;
+               owl:inverseOf :monitorsPatient .
+
+
+###  http://www.semanticweb.org/patient_monitoring#measuresVitalSign
+:measuresVitalSign rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#mentionsSymptom
+:mentionsSymptom rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#monitorsPatient
+:monitorsPatient rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#submittedBy
+:submittedBy rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#treatsPatient
+:treatsPatient rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/patient_monitoring#triggeredBy
+:triggeredBy rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/patient_monitoring#hasDeviceID
+:hasDeviceID rdf:type owl:DatatypeProperty ;
+             rdfs:domain :MedicalDevice ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasFeedbackText
+:hasFeedbackText rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PatientFeedback ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasScore
+:hasScore rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Sentiment ;
+          rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasTimestamp
+:hasTimestamp rdf:type owl:DatatypeProperty ;
+              rdfs:domain :PatientFeedback ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/patient_monitoring#hasValueNumeric
+:hasValueNumeric rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :VitalSign ;
+                 rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/patient_monitoring#Action
+:Action rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#AcuteCondition
+:AcuteCondition rdf:type owl:Class ;
+                rdfs:subClassOf :MedicalCondition .
+
+
+###  http://www.semanticweb.org/patient_monitoring#AlertAction
+:AlertAction rdf:type owl:Class ;
+             rdfs:subClassOf :Action .
+
+
+###  http://www.semanticweb.org/patient_monitoring#BloodPressure
+:BloodPressure rdf:type owl:Class ;
+               rdfs:subClassOf :VitalSign .
+
+
+###  http://www.semanticweb.org/patient_monitoring#BodyTemperature
+:BodyTemperature rdf:type owl:Class ;
+                 rdfs:subClassOf :VitalSign .
+
+
+###  http://www.semanticweb.org/patient_monitoring#CardiovascularSymptom
+:CardiovascularSymptom rdf:type owl:Class ;
+                       rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/patient_monitoring#ChronicCondition
+:ChronicCondition rdf:type owl:Class ;
+                  rdfs:subClassOf :MedicalCondition .
+
+
+###  http://www.semanticweb.org/patient_monitoring#DiagnosticReport
+:DiagnosticReport rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Doctor
+:Doctor rdf:type owl:Class ;
+        rdfs:subClassOf :HealthcareProvider .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Event
+:Event rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#HealthcareProvider
+:HealthcareProvider rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#HeartRate
+:HeartRate rdf:type owl:Class ;
+           rdfs:subClassOf :VitalSign .
+
+
+###  http://www.semanticweb.org/patient_monitoring#HospitalWard
+:HospitalWard rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#MedicalCondition
+:MedicalCondition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#MedicalDevice
+:MedicalDevice rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasDeviceID ;
+                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                               ] .
+
+
+###  http://www.semanticweb.org/patient_monitoring#MedicationAdjustment
+:MedicationAdjustment rdf:type owl:Class ;
+                      rdfs:subClassOf :Action .
+
+
+###  http://www.semanticweb.org/patient_monitoring#MonitoringSituation
+:MonitoringSituation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#NegativeSentiment
+:NegativeSentiment rdf:type owl:Class ;
+                   rdfs:subClassOf :Sentiment ;
+                   owl:disjointWith :NeutralSentiment .
+
+
+###  http://www.semanticweb.org/patient_monitoring#NeutralSentiment
+:NeutralSentiment rdf:type owl:Class ;
+                  rdfs:subClassOf :Sentiment ;
+                  owl:disjointWith :PositiveSentiment .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Nurse
+:Nurse rdf:type owl:Class ;
+       rdfs:subClassOf :HealthcareProvider .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Observation
+:Observation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#OxygenSaturation
+:OxygenSaturation rdf:type owl:Class ;
+                  rdfs:subClassOf :VitalSign .
+
+
+###  http://www.semanticweb.org/patient_monitoring#PainSymptom
+:PainSymptom rdf:type owl:Class ;
+             rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Patient
+:Patient rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasFeedback ;
+                           owl:someValuesFrom :PatientFeedback
+                         ] .
+
+
+###  http://www.semanticweb.org/patient_monitoring#PatientFeedback
+:PatientFeedback rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :submittedBy ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Patient
+                                 ] .
+
+
+###  http://www.semanticweb.org/patient_monitoring#PositiveSentiment
+:PositiveSentiment rdf:type owl:Class ;
+                   rdfs:subClassOf :Sentiment .
+
+
+###  http://www.semanticweb.org/patient_monitoring#PulseOximeter
+:PulseOximeter rdf:type owl:Class ;
+               rdfs:subClassOf :MedicalDevice ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :measuresVitalSign ;
+                                 owl:allValuesFrom :OxygenSaturation
+                               ] .
+
+
+###  http://www.semanticweb.org/patient_monitoring#RespiratorySymptom
+:RespiratorySymptom rdf:type owl:Class ;
+                    rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Sensor
+:Sensor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Sentiment
+:Sentiment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#ServiceFeedback
+:ServiceFeedback rdf:type owl:Class ;
+                 rdfs:subClassOf :PatientFeedback ;
+                 owl:disjointWith :SymptomFeedback .
+
+
+###  http://www.semanticweb.org/patient_monitoring#State
+:State rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Symptom
+:Symptom rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#SymptomFeedback
+:SymptomFeedback rdf:type owl:Class ;
+                 rdfs:subClassOf :PatientFeedback ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :mentionsSymptom ;
+                                   owl:someValuesFrom :Symptom
+                                 ] .
+
+
+###  http://www.semanticweb.org/patient_monitoring#Therapy
+:Therapy rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#TreatmentPlan
+:TreatmentPlan rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#VitalSign
+:VitalSign rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/patient_monitoring#WearableSensor
+:WearableSensor rdf:type owl:Class ;
+                rdfs:subClassOf :MedicalDevice .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

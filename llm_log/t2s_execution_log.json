@@ -1,0 +1,310 @@
+{
+  "base_prompt_evaluation": {
+    "metrics": {
+      "total": 18,
+      "syntax_ok": 16,
+      "schema_ok": 8,
+      "result_ok": 16
+    },
+    "logs": [
+      {
+        "question": "Show all patients monitored by devices",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Are there any acute conditions in the system",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Count total patient feedback entries",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Show all patients monitored by devices",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Are there any acute conditions in the system",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Count total patient feedback entries",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "List all medical devices and their IDs",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d ?id WHERE { ?d a :MedicalDevice ; :hasDeviceID ?id . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d ?id WHERE { ?d a :MedicalDevice ; :hasDeviceID ?id . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Find patients older than 50 years",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?age WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 50) }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?age WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 50) }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Show all observations with heart rate value greater than 100",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs a :Observation ; :observedValue ?val . FILTER(?val > 100) }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs a :Observation ; :observedValue ?val . FILTER(?val > 100) }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Get all feedback submitted by patients with their text",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?f ?p ?text WHERE { ?f a :PatientFeedback ; :submittedBy ?p ; :feedbackText ?text . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?f ?p ?text WHERE { ?f a :PatientFeedback ; :submittedBy ?p ; :feedbackText ?text . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Count how many devices each patient is using",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p (COUNT(?d) AS ?devCount) WHERE { ?p :isMonitoredBy ?d . } GROUP BY ?p\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p (COUNT(?d) AS ?devCount) WHERE { ?p :isMonitoredBy ?d . } GROUP BY ?p",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Find all acute conditions and optional severity level",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?c ?sev WHERE { ?c a :AcuteCondition . OPTIONAL { ?c :severity ?sev . } }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?c ?sev WHERE { ?c a :AcuteCondition . OPTIONAL { ?c :severity ?sev . } }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Is there any patient older than 80",
+        "raw_response": "PREFIX : <http://www.semanticweb.org/patient_monitoring#>\nASK WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 80",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#>\nASK WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 80",
+        "syntax_valid": false,
+        "schema_valid": false,
+        "execution_correct": false
+      },
+      {
+        "question": "List top 5 observations ordered by timestamp descending",
+        "raw_response": "```sparql\nPREFIX : [http://www.semanticweb.org/patient_monitoring#](http://www.semanticweb.org/patient_monitoring#)\nSELECT ?obs ?time WHERE { ?obs a :Observation ; :date ?time . } ORDER BY DESC(?time)\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#>\nSELECT ?obs ?time WHERE { ?obs a :Observation ; :date ?time . } ORDER BY DESC(?time)",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Find patients who have both a device and an acute condition",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT DISTINCT ?p WHERE { ?p :isMonitoredBy ?d ; :hasCondition ?c . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT DISTINCT ?p WHERE { ?p :isMonitoredBy ?d ; :hasCondition ?c . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Show average age of all patients",
+        "raw_response": "```sparql\nPREFIX : [http://www.semanticweb.org/patient_monitoring#](http://www.semanticweb.org/patient_monitoring#)\nSELECT (AVG(?age) AS ?avgAge) WHERE { ?p a :Person ; :hasAge ?age . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#>\nSELECT (AVG(?age) AS ?avgAge) WHERE { ?p a :Person ; :hasAge ?age . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Get all devices that have no assigned patient",
+        "raw_response": "```sparql\nPREFIX : [http://www.semanticweb.org/patient_monitoring#](http://www.semanticweb.org/patient_monitoring#)\nSELECT ?d WHERE { ?d a :MedicalDevice . FILTER NOT { ?p :isMonitoredBy ?d } }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#>\nSELECT ?d WHERE { ?d a :MedicalDevice . FILTER NOT { ?p :isMonitoredBy ?d } }",
+        "syntax_valid": false,
+        "schema_valid": false,
+        "execution_correct": false
+      },
+      {
+        "question": "List all observations for patient 1",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs :hasPatient :pat_01 ; :observedValue ?val . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs :hasPatient :pat_01 ; :observedValue ?val . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      }
+    ]
+  },
+  "improved_prompt_evaluation": {
+    "metrics": {
+      "total": 18,
+      "syntax_ok": 18,
+      "schema_ok": 9,
+      "result_ok": 18
+    },
+    "logs": [
+      {
+        "question": "Show all patients monitored by devices",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Are there any acute conditions in the system",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Count total patient feedback entries",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Show all patients monitored by devices",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Are there any acute conditions in the system",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Count total patient feedback entries",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "List all medical devices and their IDs",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d ?id WHERE { ?d a :MedicalDevice ; :hasDeviceID ?id . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d ?id WHERE { ?d a :MedicalDevice ; :hasDeviceID ?id . }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Find patients older than 50 years",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?age WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 50) }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?age WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 50) }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Show all observations with heart rate value greater than 100",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs a :Observation ; :observedValue ?val . FILTER(?val > 100) }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs a :Observation ; :observedValue ?val . FILTER(?val > 100) }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Get all feedback submitted by patients with their text",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?f ?p ?text WHERE { ?f a :PatientFeedback ; :submittedBy ?p ; :feedbackText ?text . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?f ?p ?text WHERE { ?f a :PatientFeedback ; :submittedBy ?p ; :feedbackText ?text . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Count how many devices each patient is using",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p (COUNT(?d) AS ?devCount) WHERE { ?p :isMonitoredBy ?d . } GROUP BY ?p\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p (COUNT(?d) AS ?devCount) WHERE { ?p :isMonitoredBy ?d . } GROUP BY ?p",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "Find all acute conditions and optional severity level",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?c ?sev WHERE { ?c a :AcuteCondition . OPTIONAL { ?c :severity ?sev . } }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?c ?sev WHERE { ?c a :AcuteCondition . OPTIONAL { ?c :severity ?sev . } }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Is there any patient older than 80",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 80) }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 80) }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "List top 5 observations ordered by timestamp descending",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?time WHERE { ?obs a :Observation ; :timestamp ?time . } ORDER BY DESC(?time) LIMIT 5\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?time WHERE { ?obs a :Observation ; :timestamp ?time . } ORDER BY DESC(?time) LIMIT 5",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Find patients who have both a device and an acute condition",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT DISTINCT ?p WHERE { ?p :isMonitoredBy ?d ; :hasCondition ?c . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT DISTINCT ?p WHERE { ?p :isMonitoredBy ?d ; :hasCondition ?c . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Show average age of all patients",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (AVG(?age) AS ?avgAge) WHERE { ?p a :Patient ; :hasAge ?age . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (AVG(?age) AS ?avgAge) WHERE { ?p a :Patient ; :hasAge ?age . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      },
+      {
+        "question": "Get all devices that have no assigned patient",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d WHERE { ?d a :MedicalDevice . FILTER NOT EXISTS { ?p :isMonitoredBy ?d . } }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d WHERE { ?d a :MedicalDevice . FILTER NOT EXISTS { ?p :isMonitoredBy ?d . } }",
+        "syntax_valid": true,
+        "schema_valid": true,
+        "execution_correct": true
+      },
+      {
+        "question": "List all observations for patient 1",
+        "raw_response": "```sparql\nPREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs :hasPatient :pat_01 ; :observedValue ?val . }\n```",
+        "parsed_query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs :hasPatient :pat_01 ; :observedValue ?val . }",
+        "syntax_valid": true,
+        "schema_valid": false,
+        "execution_correct": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+﻿id,твердження,тип,джерело,рівень верифікації,статус,коментар
+C01,Граф data/kb.ttl містить 397 триплетів і парситься rdflib без помилок,факт,rdflib len(Graph); SPARQL COUNT,V2,verified,Підтверджено запитом COUNT(*)
+C02,"kb.ttl складається з onto.owl (115), onto_data.ttl (82) та 200 синтетичних триплетів",факт,scripts/step1_autogen.py,V2,verified,Синтетичні дані детерміновані
+C03,kb_sample.jsonld містить 20 вузлів,факт,rdflib parse json-ld,V2,verified,
+C04,"Запит q2 повертає False, бо немає екземплярів :AcuteCondition",факт,SPARQL ASK; перегляд kb.ttl,V1,verified,
+C05,"Запит q4 повертає 3 відгуки (fb_01, fb_02, fb_03)",факт,SPARQL COUNT; перегляд kb.ttl,V1,verified,
+C06,Запит q6 повертає 30 показників зі значенням понад 100.0,факт,SPARQL FILTER; незалежний підрахунок,V1,verified,Діапазон 121.0-149.0
+C07,Запит q7 знаходить пару cond_heart_failure - symptom_dyspnea,факт,SPARQL property path,V1,verified,
+C08,Оптимізований запит q6 приблизно в 5 разів швидший за неоптимізований,факт,"time.perf_counter, 10 повторів",V2,verified,Медіани 0.0331 с і 0.0063 с
+C09,"Форми shapes.ttl: 5 форм, 14 обмежень 7 типів; валідний набір проходить",факт,pySHACL 0.40.1,V2,verified,
+C10,"Набір із дефектами дає 34 порушення (31 pattern, 3 minCount)",факт,pySHACL 0.40.1,V2,verified,
+C11,"Конвеєр T2S, базовий промпт: синтаксис 88.9%, схема 44.4%, результат 88.9%",факт,llm_log/t2s_execution_log.json,V4,verified,18 питань
+C12,"Конвеєр T2S, покращений промпт: синтаксис 100%, схема 50.0%, результат 100%",факт,llm_log/t2s_execution_log.json,V4,verified,18 питань
+C13,"Federated-запит q8 повертає сутності Wikidata Q835, Q838, Q839",факт,запуск запиту q8,V1,pending,
+C14,BloodPressure відповідає wd:Q851352,факт,links.ttl,V1,pending,Впевненість: висока
+C15,HeartRate відповідає wd:Q189394,факт,links.ttl,V1,pending,Впевненість: висока
+C16,PulseOximeter відповідає wd:Q1417535,факт,links.ttl,V1,pending,Впевненість: висока
+C17,OxygenSaturation відповідає wd:Q2065809,факт,links.ttl,V1,pending,Впевненість: висока
+C18,BodyTemperature відповідає wd:Q332212,факт,links.ttl,V1,pending,Впевненість: середня-висока
+C19,WearableSensor відповідає wd:Q1802188 (skos:exactMatch),факт,links.ttl,V1,rejected,"Q1802188 позначає загальну категорію Wearable technology, а не конкретний сенсор"

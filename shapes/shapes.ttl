@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+
+:MedicalDeviceShape
+    a sh:NodeShape ;
+    sh:targetClass :MedicalDevice ;
+    sh:property [
+        sh:path :hasDeviceID ;
+        sh:datatype xsd:string ;     # 1. sh:datatype
+        sh:minCount 1 ;              # 2. sh:minCount
+        sh:maxCount 1 ;              # 3. sh:maxCount
+        sh:pattern "^[A-Z]+-[A-Z0-9]+-[0-9]+$|^[A-Z]+-[0-9]+$" ;  # 4. sh:pattern
+    ] .
+
+:PatientFeedbackShape
+    a sh:NodeShape ;
+    sh:targetClass :PatientFeedback ;
+    sh:property [
+        sh:path :submittedBy ;
+        sh:class :Patient ;          # 5. sh:class
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+:PatientShape
+    a sh:NodeShape ;
+    sh:targetClass :Patient ;
+    sh:property [
+        sh:path :hasAge ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;          # 6. sh:minInclusive
+        sh:maxInclusive 120 ;        # 7. sh:maxInclusive
+    ] .
+
+:AcuteConditionShape
+    a sh:NodeShape ;
+    sh:targetClass :AcuteCondition ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
+
+:ObservationShape
+    a sh:NodeShape ;
+    sh:targetClass :Observation ;
+    sh:property [
+        sh:path :observedValue ;
+        sh:datatype xsd:decimal ;    # 8. sh:datatype (decimal)
+        sh:minCount 1 ;
+    ] .

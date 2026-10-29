@@ -1,0 +1,338 @@
+@prefix pm: <http://example.org/patient-monitoring#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pm:Patient_1 a pm:Patient ;
+    pm:patientId "P-1001"^^xsd:string ;
+    pm:age 41 ;
+    pm:hasFeedback pm:Feedback_1_1, pm:Feedback_1_2, pm:Feedback_1_3, pm:Feedback_1_4, pm:Feedback_1_5 ;
+    pm:hasMetric pm:Metric_1_1, pm:Metric_1_2, pm:Metric_1_3, pm:Metric_1_4, pm:Metric_1_5 ;
+    pm:triggersAlert pm:Alert_1_1, pm:Alert_1_2, pm:Alert_1_3, pm:Alert_1_4, pm:Alert_1_5 .
+
+pm:Feedback_1_1 a pm:Feedback ;
+    pm:feedbackId "FB-1-1"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_1_1 .
+pm:Symptom_1_1 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_1_1 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 111^^xsd:integer .
+pm:Alert_1_1 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_1_2 a pm:Feedback ;
+    pm:feedbackId "FB-1-2"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_1_2 .
+pm:Symptom_1_2 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_1_2 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 74^^xsd:integer .
+pm:Alert_1_2 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_1_3 a pm:Feedback ;
+    pm:feedbackId "FB-1-3"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_1_3 .
+pm:Symptom_1_3 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_1_3 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 113^^xsd:integer .
+pm:Alert_1_3 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_1_4 a pm:Feedback ;
+    pm:feedbackId "FB-1-4"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_1_4 .
+pm:Symptom_1_4 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_1_4 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 78^^xsd:integer .
+pm:Alert_1_4 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Feedback_1_5 a pm:Feedback ;
+    pm:feedbackId "FB-1-5"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_1_5 .
+pm:Symptom_1_5 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_1_5 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 115^^xsd:integer .
+pm:Alert_1_5 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Patient_2 a pm:Patient ;
+    pm:patientId "P-1002"^^xsd:string ;
+    pm:age 42 ;
+    pm:hasFeedback pm:Feedback_2_1, pm:Feedback_2_2, pm:Feedback_2_3, pm:Feedback_2_4, pm:Feedback_2_5 ;
+    pm:hasMetric pm:Metric_2_1, pm:Metric_2_2, pm:Metric_2_3, pm:Metric_2_4, pm:Metric_2_5 ;
+    pm:triggersAlert pm:Alert_2_1, pm:Alert_2_2, pm:Alert_2_3, pm:Alert_2_4, pm:Alert_2_5 .
+
+pm:Feedback_2_1 a pm:Feedback ;
+    pm:feedbackId "FB-2-1"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_2_1 .
+pm:Symptom_2_1 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_2_1 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 120^^xsd:integer .
+pm:Alert_2_1 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_2_2 a pm:Feedback ;
+    pm:feedbackId "FB-2-2"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_2_2 .
+pm:Symptom_2_2 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_2_2 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 82^^xsd:integer .
+pm:Alert_2_2 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_2_3 a pm:Feedback ;
+    pm:feedbackId "FB-2-3"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_2_3 .
+pm:Symptom_2_3 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_2_3 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 122^^xsd:integer .
+pm:Alert_2_3 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_2_4 a pm:Feedback ;
+    pm:feedbackId "FB-2-4"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_2_4 .
+pm:Symptom_2_4 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_2_4 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 86^^xsd:integer .
+pm:Alert_2_4 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Feedback_2_5 a pm:Feedback ;
+    pm:feedbackId "FB-2-5"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_2_5 .
+pm:Symptom_2_5 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_2_5 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 125^^xsd:integer .
+pm:Alert_2_5 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Patient_3 a pm:Patient ;
+    pm:patientId "P-1003"^^xsd:string ;
+    pm:age 43 ;
+    pm:hasFeedback pm:Feedback_3_1, pm:Feedback_3_2, pm:Feedback_3_3, pm:Feedback_3_4, pm:Feedback_3_5 ;
+    pm:hasMetric pm:Metric_3_1, pm:Metric_3_2, pm:Metric_3_3, pm:Metric_3_4, pm:Metric_3_5 ;
+    pm:triggersAlert pm:Alert_3_1, pm:Alert_3_2, pm:Alert_3_3, pm:Alert_3_4, pm:Alert_3_5 .
+
+pm:Feedback_3_1 a pm:Feedback ;
+    pm:feedbackId "FB-3-1"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_3_1 .
+pm:Symptom_3_1 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_3_1 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 118^^xsd:integer .
+pm:Alert_3_1 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_3_2 a pm:Feedback ;
+    pm:feedbackId "FB-3-2"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_3_2 .
+pm:Symptom_3_2 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_3_2 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 75^^xsd:integer .
+pm:Alert_3_2 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_3_3 a pm:Feedback ;
+    pm:feedbackId "FB-3-3"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_3_3 .
+pm:Symptom_3_3 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_3_3 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 119^^xsd:integer .
+pm:Alert_3_3 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_3_4 a pm:Feedback ;
+    pm:feedbackId "FB-3-4"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_3_4 .
+pm:Symptom_3_4 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_3_4 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 79^^xsd:integer .
+pm:Alert_3_4 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Feedback_3_5 a pm:Feedback ;
+    pm:feedbackId "FB-3-5"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_3_5 .
+pm:Symptom_3_5 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_3_5 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 121^^xsd:integer .
+pm:Alert_3_5 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Patient_4 a pm:Patient ;
+    pm:patientId "P-1004"^^xsd:string ;
+    pm:age 44 ;
+    pm:hasFeedback pm:Feedback_4_1, pm:Feedback_4_2, pm:Feedback_4_3, pm:Feedback_4_4, pm:Feedback_4_5 ;
+    pm:hasMetric pm:Metric_4_1, pm:Metric_4_2, pm:Metric_4_3, pm:Metric_4_4, pm:Metric_4_5 ;
+    pm:triggersAlert pm:Alert_4_1, pm:Alert_4_2, pm:Alert_4_3, pm:Alert_4_4, pm:Alert_4_5 .
+
+pm:Feedback_4_1 a pm:Feedback ;
+    pm:feedbackId "FB-4-1"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_4_1 .
+pm:Symptom_4_1 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_4_1 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 124^^xsd:integer .
+pm:Alert_4_1 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_4_2 a pm:Feedback ;
+    pm:feedbackId "FB-4-2"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_4_2 .
+pm:Symptom_4_2 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_4_2 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 80^^xsd:integer .
+pm:Alert_4_2 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_4_3 a pm:Feedback ;
+    pm:feedbackId "FB-4-3"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_4_3 .
+pm:Symptom_4_3 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_4_3 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 126^^xsd:integer .
+pm:Alert_4_3 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_4_4 a pm:Feedback ;
+    pm:feedbackId "FB-4-4"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_4_4 .
+pm:Symptom_4_4 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_4_4 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 84^^xsd:integer .
+pm:Alert_4_4 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Feedback_4_5 a pm:Feedback ;
+    pm:feedbackId "FB-4-5"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_4_5 .
+pm:Symptom_4_5 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_4_5 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 128^^xsd:integer .
+pm:Alert_4_5 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Patient_5 a pm:Patient ;
+    pm:patientId "P-1005"^^xsd:string ;
+    pm:age 45 ;
+    pm:hasFeedback pm:Feedback_5_1, pm:Feedback_5_2, pm:Feedback_5_3, pm:Feedback_5_4, pm:Feedback_5_5 ;
+    pm:hasMetric pm:Metric_5_1, pm:Metric_5_2, pm:Metric_5_3, pm:Metric_5_4, pm:Metric_5_5 ;
+    pm:triggersAlert pm:Alert_5_1, pm:Alert_5_2, pm:Alert_5_3, pm:Alert_5_4, pm:Alert_5_5 .
+
+pm:Feedback_5_1 a pm:Feedback ;
+    pm:feedbackId "FB-5-1"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_5_1 .
+pm:Symptom_5_1 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_5_1 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 130^^xsd:integer .
+pm:Alert_5_1 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_5_2 a pm:Feedback ;
+    pm:feedbackId "FB-5-2"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_5_2 .
+pm:Symptom_5_2 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_5_2 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 88^^xsd:integer .
+pm:Alert_5_2 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_5_3 a pm:Feedback ;
+    pm:feedbackId "FB-5-3"^^xsd:string ;
+    pm:score 5 ;
+    pm:reportsSymptom pm:Symptom_5_3 .
+pm:Symptom_5_3 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_5_3 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 132^^xsd:integer .
+pm:Alert_5_3 a pm:Alert ;
+    pm:alertType "Normal"^^xsd:string .
+
+pm:Feedback_5_4 a pm:Feedback ;
+    pm:feedbackId "FB-5-4"^^xsd:string ;
+    pm:score 3 ;
+    pm:reportsSymptom pm:Symptom_5_4 .
+pm:Symptom_5_4 a pm:Symptom ;
+    pm:severityLevel "Moderate"^^xsd:string .
+pm:Metric_5_4 a pm:HealthMetric ;
+    pm:metricName "HeartRate"^^xsd:string ;
+    pm:metricValue 90^^xsd:integer .
+pm:Alert_5_4 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .
+
+pm:Feedback_5_5 a pm:Feedback ;
+    pm:feedbackId "FB-5-5"^^xsd:string ;
+    pm:score 4 ;
+    pm:reportsSymptom pm:Symptom_5_5 .
+pm:Symptom_5_5 a pm:Symptom ;
+    pm:severityLevel "Mild"^^xsd:string .
+pm:Metric_5_5 a pm:HealthMetric ;
+    pm:metricName "BloodPressure"^^xsd:string ;
+    pm:metricValue 135^^xsd:integer .
+pm:Alert_5_5 a pm:Alert ;
+    pm:alertType "Warning"^^xsd:string .

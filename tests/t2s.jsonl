@@ -1,0 +1,18 @@
+{"question": "Show all patients monitored by devices", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }"}
+{"question": "Are there any acute conditions in the system", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }"}
+{"question": "Count total patient feedback entries", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }"}
+{"question": "Show all patients monitored by devices", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?d WHERE { ?p :isMonitoredBy ?d . }"}
+{"question": "Are there any acute conditions in the system", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?s a :AcuteCondition . }"}
+{"question": "Count total patient feedback entries", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (COUNT(?f) AS ?c) WHERE { ?f a :PatientFeedback . }"}
+{"question": "List all medical devices and their IDs", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d ?id WHERE { ?d a :MedicalDevice ; :hasDeviceID ?id . }"}
+{"question": "Find patients older than 50 years", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p ?age WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 50) }"}
+{"question": "Show all observations with heart rate value greater than 100", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs a :Observation ; :observedValue ?val . FILTER(?val > 100) }"}
+{"question": "Get all feedback submitted by patients with their text", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?f ?p ?text WHERE { ?f a :PatientFeedback ; :submittedBy ?p ; :feedbackText ?text . }"}
+{"question": "Count how many devices each patient is using", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?p (COUNT(?d) AS ?devCount) WHERE { ?p :isMonitoredBy ?d . } GROUP BY ?p"}
+{"question": "Find all acute conditions and optional severity level", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?c ?sev WHERE { ?c a :AcuteCondition . OPTIONAL { ?c :severity ?sev . } }"}
+{"question": "Is there any patient older than 80", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> ASK WHERE { ?p a :Patient ; :hasAge ?age . FILTER(?age > 80) }"}
+{"question": "List top 5 observations ordered by timestamp descending", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?time WHERE { ?obs a :Observation ; :timestamp ?time . } ORDER BY DESC(?time) LIMIT 5"}
+{"question": "Find patients who have both a device and an acute condition", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT DISTINCT ?p WHERE { ?p :isMonitoredBy ?d ; :hasCondition ?c . }"}
+{"question": "Show average age of all patients", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT (AVG(?age) AS ?avgAge) WHERE { ?p a :Patient ; :hasAge ?age . }"}
+{"question": "Get all devices that have no assigned patient", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?d WHERE { ?d a :MedicalDevice . FILTER NOT EXISTS { ?p :isMonitoredBy ?d . } }"}
+{"question": "List all observations for patient 1", "query": "PREFIX : <http://www.semanticweb.org/patient_monitoring#> SELECT ?obs ?val WHERE { ?obs :hasPatient :pat_01 ; :observedValue ?val . }"}

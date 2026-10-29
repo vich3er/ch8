@@ -1,0 +1,29 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+# 1. Blood Pressure (Тиск) - Підтверджено
+:BloodPressure skos:exactMatch wd:Q851352 ;
+    rdfs:comment "Exact match with Wikidata Blood Pressure concept (Q851352). Confidence: High (V1)." .
+
+# 2. Heart Rate (Пульс) - Підтверджено
+:HeartRate skos:exactMatch wd:Q189394 ;
+    rdfs:comment "Exact match with Wikidata Heart Rate concept (Q189394). Confidence: High (V1)." .
+
+# 3. Pulse Oximeter (Пульсоксиметр) - Підтверджено
+:PulseOximeter skos:exactMatch wd:Q1417535 ;
+    rdfs:comment "Exact match with Wikidata Pulse Oximeter device (Q1417535). Confidence: High (V1)." .
+
+# 4. Oxygen Saturation (Насичення киснем) - Підтверджено
+:OxygenSaturation skos:exactMatch wd:Q2065809 ;
+    rdfs:comment "Exact match with Wikidata Oxygen Saturation concept (Q2065809). Confidence: High (V1)." .
+
+# 5. Body Temperature (Температура тіла) - Підтверджено
+:BodyTemperature skos:exactMatch wd:Q332212 ;
+    rdfs:comment "Exact match with Wikidata Normal Human Body Temperature (Q332212). Confidence: Medium-High (V1)." .
+
+# 6. ВІДХИЛЕНИЙ ЗВ'ЯЗОК (для критерію C3):
+# :WearableSensor skos:exactMatch wd:Q1802188 .
+# REJECTED: wd:Q1802188 є 'Wearable technology' (загальна категорія), а не спеціалізований 'Wearable Sensor'.

@@ -1,0 +1,166 @@
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/patient_monitoring#> .
+
+<http://www.semanticweb.org/patient_monitoring/data_v3> rdf:type owl:Ontology ;
+                                                         owl:imports <http://www.semanticweb.org/patient_monitoring> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/patient_monitoring#hasSeverity
+:hasSeverity rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/patient_monitoring#action_alert_01
+:action_alert_01 rdf:type owl:NamedIndividual ,
+                          :AlertAction ;
+                 :triggeredBy :fb_03 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#action_med_adj_01
+:action_med_adj_01 rdf:type owl:NamedIndividual ,
+                            :MedicationAdjustment ;
+                   :triggeredBy :fb_01 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#cond_heart_failure
+:cond_heart_failure rdf:type owl:NamedIndividual ,
+                             :ChronicCondition ;
+                    :associatedWithSymptom :symptom_dyspnea .
+
+
+###  http://www.semanticweb.org/patient_monitoring#dev_pulse_ox_01
+:dev_pulse_ox_01 rdf:type owl:NamedIndividual ,
+                          :PulseOximeter ;
+                 :measuresVitalSign :vital_spo2_01 ;
+                 :monitorsPatient :patient_01 ;
+                 :hasDeviceID "POX-9921" .
+
+
+###  http://www.semanticweb.org/patient_monitoring#dev_smartwatch_01
+:dev_smartwatch_01 rdf:type owl:NamedIndividual ,
+                            :WearableSensor ;
+                   :measuresVitalSign :vital_hr_01 ;
+                   :monitorsPatient :patient_03 ;
+                   :hasDeviceID "WSR-1044" .
+
+
+###  http://www.semanticweb.org/patient_monitoring#doc_smith
+:doc_smith rdf:type owl:NamedIndividual ,
+                    :Doctor ;
+           :treatsPatient :patient_01 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#fb_01
+:fb_01 rdf:type owl:NamedIndividual ,
+                :SymptomFeedback ;
+       :hasSentiment :sent_neg_01 ;
+       :mentionsSymptom :symptom_dyspnea ;
+       :submittedBy :patient_01 ;
+       :hasFeedbackText "Задишка посилилась під час ходьби" ;
+       :hasTimestamp "2026-10-20T10:00:00Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/patient_monitoring#fb_02
+:fb_02 rdf:type owl:NamedIndividual ,
+                :ServiceFeedback ;
+       :hasSentiment :sent_pos_01 ;
+       :submittedBy :patient_02 ;
+       :hasFeedbackText "Чудовий догляд медсестри у палаті" ;
+       :hasTimestamp "2026-10-21T11:30:00Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/patient_monitoring#fb_03
+:fb_03 rdf:type owl:NamedIndividual ,
+                :SymptomFeedback ;
+       :hasSentiment :sent_neg_02 ;
+       :mentionsSymptom :symptom_chest_pain ;
+       :submittedBy :patient_03 ;
+       :hasTimestamp "2026-10-22T08:15:00Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/patient_monitoring#nurse_joy
+:nurse_joy rdf:type owl:NamedIndividual ,
+                    :Nurse .
+
+
+###  http://www.semanticweb.org/patient_monitoring#patient_01
+:patient_01 rdf:type owl:NamedIndividual ,
+                     :Patient ;
+            :hasFeedback :fb_01 ;
+            :isMonitoredBy :dev_pulse_ox_01 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#patient_02
+:patient_02 rdf:type owl:NamedIndividual ,
+                     :Patient ;
+            :hasFeedback :fb_02 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#patient_03
+:patient_03 rdf:type owl:NamedIndividual ,
+                     :Patient ;
+            :hasFeedback :fb_03 ;
+            :isMonitoredBy :dev_smartwatch_01 .
+
+
+###  http://www.semanticweb.org/patient_monitoring#sent_neg_01
+:sent_neg_01 rdf:type owl:NamedIndividual ,
+                      :NegativeSentiment ,
+                      :PositiveSentiment ;
+             :hasScore "-0.75"^^xsd:float .
+
+
+###  http://www.semanticweb.org/patient_monitoring#sent_neg_02
+:sent_neg_02 rdf:type owl:NamedIndividual ,
+                      :NegativeSentiment ;
+             :hasScore "-0.9"^^xsd:float .
+
+
+###  http://www.semanticweb.org/patient_monitoring#sent_pos_01
+:sent_pos_01 rdf:type owl:NamedIndividual ,
+                      :PositiveSentiment ;
+             :hasScore "0.85"^^xsd:float .
+
+
+###  http://www.semanticweb.org/patient_monitoring#symptom_chest_pain
+:symptom_chest_pain rdf:type owl:NamedIndividual ,
+                             :PainSymptom ;
+                    :hasSeverity "Critical" .
+
+
+###  http://www.semanticweb.org/patient_monitoring#symptom_dyspnea
+:symptom_dyspnea rdf:type owl:NamedIndividual ,
+                          :RespiratorySymptom ;
+                 :hasSeverity "Severe" .
+
+
+###  http://www.semanticweb.org/patient_monitoring#symptom_fever
+:symptom_fever rdf:type owl:NamedIndividual ,
+                        :Symptom ;
+               :hasSeverity "Moderate" .
+
+
+###  http://www.semanticweb.org/patient_monitoring#vital_hr_01
+:vital_hr_01 rdf:type owl:NamedIndividual ,
+                      :HeartRate ;
+             :hasValueNumeric "125.0"^^xsd:double .
+
+
+###  http://www.semanticweb.org/patient_monitoring#vital_spo2_01
+:vital_spo2_01 rdf:type owl:NamedIndividual ,
+                        :OxygenSaturation ;
+               :hasValueNumeric "88.5"^^xsd:double .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

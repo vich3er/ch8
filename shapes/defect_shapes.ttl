@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.semanticweb.org/patient_monitoring#> .
+
+# Дефект 1 в формі: задано pattern, якому не відповідає жоден ID в kb.ttl
+:MedicalDeviceShape
+    a sh:NodeShape ;
+    sh:targetClass :MedicalDevice ;
+    sh:property [
+        sh:path :hasDeviceID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:pattern "^MUST_START_WITH_AAA-[0-9]+$" ;
+    ] .
+
+# Дефект 2 в формі: занадто велика minCount (вимагає 5 авторів замість 1)
+:PatientFeedbackShape
+    a sh:NodeShape ;
+    sh:targetClass :PatientFeedback ;
+    sh:property [
+        sh:path :submittedBy ;
+        sh:class :Patient ;
+        sh:minCount 5 ;
+    ] .
+
+# Дефект 3 в формі: вимагає boolean замість числа для віку
+:PatientShape
+    a sh:NodeShape ;
+    sh:targetClass :Patient ;
+    sh:property [
+        sh:path :hasAge ;
+        sh:datatype xsd:boolean ;
+    ] .
+
+:AcuteConditionShape
+    a sh:NodeShape ;
+    sh:targetClass :AcuteCondition ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] .
+
+:ObservationShape
+    a sh:NodeShape ;
+    sh:targetClass :Observation ;
+    sh:property [
+        sh:path :observedValue ;
+        sh:minCount 1 ;
+    ] .
